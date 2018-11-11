@@ -115,6 +115,35 @@
       ]
     },
     {
+      "begin": "(?i)^\\s*(interface)\\s([a-z_][a-z_0-9]*)",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.type.block.abap"
+        },
+        "2": {
+          "name": "entity.name.type.block.abap"
+        }
+      },
+      "end": "\\s*\\.\\s*\\n?",
+      "name": "meta.block.begin.interface.definition.abap",
+      "patterns": [
+        {
+          "match": "(?ix)(^|\\s+)(deferred|public)(?=\\s+|\\.)",
+          "name": "storage.modifier.interface.abap"
+        },
+        {
+          "begin": "(?=[A-Za-z_][A-Za-z0-9_]*)",
+          "contentName": "entity.name.type.block.abap",
+          "end": "(?![A-Za-z0-9_])",
+          "patterns": [
+            {
+              "include": "#generic_names"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "match": "(?i)(endclass|endmethod|endform)",
       "name": "storage.type.block.end.abap"
     },
