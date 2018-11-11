@@ -86,7 +86,21 @@
       ]
     },
     {
-      "begin": "(?i)^\\s*(class|method|form)\\s([a-z_][a-z_0-9]*)",
+      "match": "(?i)^\\s*(method)\\s(([A-Za-z_][A-Za-z0-9_]*)~)?([A-Za-z_][A-Za-z0-9_]*)\\.",
+      "captures": {
+        "1": {
+          "name": "storage.type.block.abap"
+        },
+        "3": {
+          "name": "entity.name.type.interface.abap"
+        },
+        "4": {
+          "name": "entity.name.function.abap"
+        }
+      }
+    },
+    {
+      "begin": "(?i)^\\s*(class|form)\\s([a-z_][a-z_0-9]*)",
       "beginCaptures": {
         "1": {
           "name": "storage.type.block.abap"
