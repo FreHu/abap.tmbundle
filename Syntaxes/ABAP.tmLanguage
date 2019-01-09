@@ -254,6 +254,34 @@
 				<key>name</key>
 				<string>keyword.control.flow.abap</string>
 			</dict>
+			<key>constructor_operators</key>
+			<dict>
+				<key>match</key>
+				<string>(?ix)(?=(?:^|\s*))(cast|cond|conv|corresponding|exact|filter|new|reduce|ref|switch|value)\s+(?:(\#)|(?:([a-z_\/][a-z0-9_\/]*)(=>)?([a-z_\/][a-z0-9_\/]*)*))(?=\()</string>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>keyword.control.simple.abap</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.type.abap</string>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.type.abap</string>
+					</dict>
+					<key>5</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.type.abap</string>
+					</dict>
+				</dict>
+			</dict>
 			<key>generic_names</key>
 			<dict>
 				<key>match</key>
@@ -263,6 +291,10 @@
 			<dict>
 				<key>patterns</key>
 				<array>
+				<dict>
+					<key>include</key>
+						<string>#constructor_operators</string>
+					</dict>
 					<dict>
 						<key>include</key>
 						<string>#main_keywords</string>
