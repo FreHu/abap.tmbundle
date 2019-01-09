@@ -254,6 +254,39 @@
 				<key>name</key>
 				<string>keyword.control.flow.abap</string>
 			</dict>
+			<key>misc_types</key>
+			<dict>
+				<key>match</key>
+				<string>(?ix)(?:^|\s*)([a-z_][a-z0-9_]*)\s+(TYPE)\s+(?:(\#)|(?:([a-z_\/][a-z0-9_\/]*)(=>)?([a-z_\/][a-z0-9_\/]*)*))(?=\s|\.|:|,)</string>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>support.variable.abap</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>name</key>
+						<string>keyword.control.simple.abap</string>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.type.abap</string>
+					</dict>
+					<key>4</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.type.abap</string>
+					</dict>
+					<key>6</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.type.abap</string>
+					</dict>
+				</dict>
+			</dict>
 			<key>constructor_operators</key>
 			<dict>
 				<key>match</key>
@@ -294,7 +327,11 @@
 				<dict>
 					<key>include</key>
 						<string>#constructor_operators</string>
-					</dict>
+				</dict>
+				<dict>
+					<key>include</key>
+						<string>#misc_types</string>
+				</dict>
 					<dict>
 						<key>include</key>
 						<string>#main_keywords</string>
