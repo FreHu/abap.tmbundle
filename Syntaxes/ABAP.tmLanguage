@@ -195,6 +195,10 @@
 			</dict>
 			<dict>
 				<key>include</key>
+				<string>#static_call</string>
+			</dict>
+			<dict>
+				<key>include</key>
 				<string>#method_names</string>
 			</dict>
 			<dict>
@@ -293,27 +297,45 @@
 			</dict>
 			<key>method_names</key>
 			<dict>
-						<key>match</key>
-						<string>(?ix)^\s*(METHOD)\s(([A-Za-z_/][A-Za-z0-9_/]*)~)?([A-Za-z_/][A-Za-z0-9_/]*)\.</string>
-						<key>captures</key>
-						<dict>
-							<key>1</key>
-							<dict>
-								<key>name</key>
-								<string>storage.type.block.abap</string>
-							</dict>
-							<key>3</key>
-							<dict>
-								<key>name</key>
-								<string>entity.name.type.interface.abap</string>
-							</dict>
-							<key>4</key>
-							<dict>
-								<key>name</key>
-								<string>entity.name.function.abap</string>
-							</dict>
-						</dict>
+				<key>match</key>
+				<string>(?ix)^\s*(METHOD)\s(([A-Za-z_/][A-Za-z0-9_/]*)~)?([A-Za-z_/][A-Za-z0-9_/]*)\.</string>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>storage.type.block.abap</string>
 					</dict>
+					<key>3</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.type.interface.abap</string>
+					</dict>
+					<key>4</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.function.abap</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>static_calls</key>
+			<dict>
+				<key>match</key>
+				<string>(?i)\s*([A-Za-z_\/][A-Za-z0-9_\/]*)=>([a-z0-9][a-z0-9_]*)(?=\()</string>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.type.abap</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.function.abap</string>
+					</dict>
+				</dict>
+			</dict>
 			<key>misc_types</key>
 			<dict>
 				<key>match</key>
@@ -453,8 +475,8 @@
 	        unassign|unique|uline|unpack|update|upper|using|
 	        value|
 	        when|while|window|write|where|with|work|
-					xml 
-					)(?=\s|\.|:|,)</string>
+					xml
+					 )(?=\s|\.|:|,)</string>
 				<key>name</key>
 				<string>keyword.control.simple.abap</string>
 			</dict>
