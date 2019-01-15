@@ -138,7 +138,7 @@
 			</dict>
 			<dict>
 				<key>begin</key>
-				<string>(?i)^\s*(class|method|form)\s([a-z_/][a-z_0-9/]*)</string>
+				<string>(?i)^\s*(class|form)\s([a-z_/][a-z_0-9/]*)</string>
 				<key>beginCaptures</key>
 				<dict>
 					<key>1</key>
@@ -195,6 +195,10 @@
 			</dict>
 			<dict>
 				<key>include</key>
+				<string>#method_names</string>
+			</dict>
+			<dict>
+				<key>include</key>
 				<string>#keywords</string>
 			</dict>
 			<dict>
@@ -220,7 +224,7 @@
 		</array>
 		<key>repository</key>
 		<dict>
-		<key>alias</key>
+			<key>alias</key>
 			<dict>
 				<key>match</key>
 				<string>(?ix)\s([A-Za-z_/][A-Za-z0-9_/]*)\s+(for)\s+([A-Za-z_][A-Za-z0-9_]*)~([A-Za-z_][A-Za-z0-9_]*)\s*(?=(,|\.))</string>
@@ -247,7 +251,7 @@
 						<string>entity.name.function.abap</string>
 					</dict>
 				</dict>
-				</dict>
+			</dict>
 			<key>abap_constants</key>
 			<dict>
 				<key>match</key>
@@ -255,7 +259,7 @@
 				<key>name</key>
 				<string>constant.language.abap</string>
 			</dict>
-			
+
 			<key>abaptypes</key>
 			<dict>
 				<key>match</key>
@@ -283,10 +287,33 @@
 				<string>(?ix)(^|\s)(
 	        at|case|catch|continue|do|elseif|else|endat|endcase|enddo|endif|
 	        endloop|endon|if|loop|on|raise|try
-			 )(?=\s|\.|:)</string>
+					 )(?=\s|\.|:)</string>
 				<key>name</key>
 				<string>keyword.control.flow.abap</string>
 			</dict>
+			<key>method_names</key>
+			<dict>
+						<key>match</key>
+						<string>(?ix)^\s*(METHOD)\s(([A-Za-z_/][A-Za-z0-9_/]*)~)?([A-Za-z_/][A-Za-z0-9_/]*)\.</string>
+						<key>captures</key>
+						<dict>
+							<key>1</key>
+							<dict>
+								<key>name</key>
+								<string>storage.type.block.abap</string>
+							</dict>
+							<key>3</key>
+							<dict>
+								<key>name</key>
+								<string>entity.name.type.interface.abap</string>
+							</dict>
+							<key>4</key>
+							<dict>
+								<key>name</key>
+								<string>entity.name.function.abap</string>
+							</dict>
+						</dict>
+					</dict>
 			<key>misc_types</key>
 			<dict>
 				<key>match</key>
@@ -357,14 +384,14 @@
 			<dict>
 				<key>patterns</key>
 				<array>
-				<dict>
-					<key>include</key>
+					<dict>
+						<key>include</key>
 						<string>#constructor_operators</string>
-				</dict>
-				<dict>
-					<key>include</key>
+					</dict>
+					<dict>
+						<key>include</key>
 						<string>#misc_types</string>
-				</dict>
+					</dict>
 					<dict>
 						<key>include</key>
 						<string>#main_keywords</string>
@@ -426,8 +453,8 @@
 	        unassign|unique|uline|unpack|update|upper|using|
 	        value|
 	        when|while|window|write|where|with|work|
-					xml
-			 )(?=\s|\.|:|,)</string>
+					xml 
+					)(?=\s|\.|:|,)</string>
 				<key>name</key>
 				<string>keyword.control.simple.abap</string>
 			</dict>
