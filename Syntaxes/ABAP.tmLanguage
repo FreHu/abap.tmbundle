@@ -213,9 +213,41 @@
 				<key>include</key>
 				<string>#system_fields</string>
 			</dict>
+			<dict>
+				<key>include</key>
+				<string>#alias</string>
+			</dict>
 		</array>
 		<key>repository</key>
 		<dict>
+		<key>alias</key>
+			<dict>
+				<key>match</key>
+				<string>(?ix)\s([A-Za-z_/][A-Za-z0-9_/]*)\s+(for)\s+([A-Za-z_][A-Za-z0-9_]*)~([A-Za-z_][A-Za-z0-9_]*)\s*(?=(,|\.))</string>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.function.abap</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>name</key>
+						<string>keyword.control.simple.abap</string>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.type.interface.abap</string>
+					</dict>
+					<key>4</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.function.abap</string>
+					</dict>
+				</dict>
+				</dict>
 			<key>abap_constants</key>
 			<dict>
 				<key>match</key>
@@ -223,6 +255,7 @@
 				<key>name</key>
 				<string>constant.language.abap</string>
 			</dict>
+			
 			<key>abaptypes</key>
 			<dict>
 				<key>match</key>
