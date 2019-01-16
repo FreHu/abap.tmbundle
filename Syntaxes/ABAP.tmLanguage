@@ -195,7 +195,23 @@
 			</dict>
 			<dict>
 				<key>include</key>
+				<string>#instance_calls</string>
+			</dict>
+			<dict>
+				<key>include</key>
+				<string>#instance_member_access</string>
+			</dict>
+			<dict>
+				<key>include</key>
 				<string>#static_calls</string>
+			</dict>
+			<dict>
+				<key>include</key>
+				<string>#static_member_access</string>
+			</dict>
+			<dict>
+				<key>include</key>
+				<string>#structure_component_access</string>
 			</dict>
 			<dict>
 				<key>include</key>
@@ -337,6 +353,78 @@
 					<dict>
 						<key>name</key>
 						<string>entity.name.function.abap</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>instance_calls</key>
+			<dict>
+				<key>match</key>
+				<string>(?i)(?&lt;=\s|-&gt;)([A-Z_\/][A-Z0-9_\/]*)->([A-Z0-9][A-Z0-9_]*)(?=\()</string>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>variable.other.abap</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>name</key>
+						<string>entity.name.function.abap</string>
+					</dict>
+				</dict>
+			</dict>
+			<!-- <key>instance_member_access</key>
+			<dict>
+				<key>match</key>
+				<string>(?i)(?&lt;=\s|>)([A-Za-z_\/][A-Za-z0-9_\/]*)(?:->([a-z0-9][a-z0-9_]*))*(?=\s|->)</string>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>variable.other.abap</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>name</key>
+						<string>variable.other.abap</string>
+					</dict>
+				</dict>
+			</dict> -->
+			<key>static_member_access</key>
+			<dict>
+				<key>match</key>
+				<string>(?i)(?&lt;=\s|&gt;)([A-Za-z_\/][A-Za-z0-9_\/]*)?=([a-z0-9][a-z0-9_]*)(?=\.|->|-)</string>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>support.type.abap</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>name</key>
+						<string>variable.other.abap</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>structure_component_access</key>
+			<dict>
+				<key>match</key>
+				<string>(?i)\s*([A-Za-z_\/][A-Za-z0-9_\/]*)-([a-z0-9][a-z0-9_]*)(?=\s|->|-)</string>
+				<key>captures</key>
+				<dict>
+					<key>1</key>
+					<dict>
+						<key>name</key>
+						<string>variable.other.abap</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>name</key>
+						<string>variable.other.abap</string>
 					</dict>
 				</dict>
 			</dict>
